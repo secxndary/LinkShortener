@@ -1,0 +1,53 @@
+﻿@model LinkDto
+@{
+    ViewData["Title"] = "Edit link";
+}
+
+<div class="d-flex align-items-center justify-content-center pt-md-5" >
+    <form method="post">
+        <div class="p-4 mt-4 border border-light" style="width: 500px">
+
+            <div class="row pb-2">
+                <h2 class="text-primary text-center">Edit link</h2>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UrlLong">Your URL</label>
+                <input asp-for="UrlLong" class="form-control" />
+                <span asp-validation-for="UrlLong" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CreationDate">Created at</label>
+                <input asp-for="CreationDate" class="form-control" />
+                <span asp-validation-for="CreationDate" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UrlShort">Short URL</label>
+                <input asp-for="UrlShort" class="form-control" disabled/>
+                <span asp-validation-for="UrlShort" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="NumberOfClicks">Number of Clicks</label>
+                <input asp-for="NumberOfClicks" class="form-control" disabled/>
+                <span asp-validation-for="NumberOfClicks" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-around">
+                <button asp-controller="Link" asp-action="Edit" type="submit"
+                        class="btn btn-primary p-2" style="width: 160px">
+                    Update
+                </button>
+                <a asp-controller="Link" asp-action="Index" class="btn btn-secondary p-2" style="width: 160px">Back to list</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts 
+{
+    <partial name="_ValidationScriptsPartial" />
+}

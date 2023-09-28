@@ -1,0 +1,36 @@
+﻿@model LinkDto
+@{
+    ViewData["Title"] = "Create link";
+}
+
+<div class="d-flex align-items-center justify-content-center pt-md-5" >
+    <form method="post">
+        <div class="p-4 mt-4 border border-light" style="width: 500px">
+
+            <div class="row pb-2">
+                <h2 class="text-primary text-center">Add link</h2>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UrlLong">Your URL</label>
+                <input asp-for="UrlLong" class="form-control" />
+                <span asp-validation-for="UrlLong" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex justify-content-around">
+                <button asp-controller="Link" asp-action="Create" type="submit" class="btn btn-primary p-2" style="width: 160px">
+                    Add
+                </button>
+                <a asp-controller="Link" asp-action="Index" class="btn btn-secondary p-2" style="width: 160px">
+                    Back to list
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts 
+{
+    <partial name="_ValidationScriptsPartial" />
+}
